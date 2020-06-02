@@ -68,7 +68,7 @@ public class JpaDemoApplication implements ApplicationRunner {
 		order = CoffeeOrder.builder()
 				.customer("Li Lei")
 				.items(Arrays.asList(espresso, latte))
-				.state(OrderState.INIT)
+				.state(OrderState.CANCELLED)
 				.build();
 		orderRepository.save(order);
 		log.info("Order: {}", order);

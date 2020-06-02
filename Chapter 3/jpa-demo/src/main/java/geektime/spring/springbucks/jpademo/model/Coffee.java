@@ -12,6 +12,7 @@ import org.joda.money.Money;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -25,11 +26,11 @@ import java.util.Date;
 @AllArgsConstructor
 public class Coffee implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @Column
-    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount",
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyMinorAmount",
             parameters = {@org.hibernate.annotations.Parameter(name = "currencyCode", value = "CNY")})
     private Money price;
     @Column(updatable = false)
